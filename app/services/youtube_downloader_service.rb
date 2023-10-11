@@ -5,10 +5,10 @@ require 'net/http'
 require 'uri'
 
 class YoutubeDownloaderService
-  def self.download_mp3(url)
+  def self.download_mp3(url, title)
     setup_firefox_and_navigate(url)
     download_href = fetch_download_link
-    destination_path = File.join(Rails.root, 'tmp', 'downloaded_file.mp3')
+    destination_path = File.join(Rails.root, 'tmp', "#{title}.mp3")
     download_file(download_href, destination_path)
     destination_path
   end

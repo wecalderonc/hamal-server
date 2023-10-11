@@ -3,8 +3,8 @@ class DownloadsController < ApplicationController
 
   def create
     video_url = params[:url]
-    YoutubeDownloaderService.download_mp3(video_url)
-    # You can either send the file directly or save it and send a link.
-    send_file 'tmp/downloaded_file.mp3', type: 'audio/mpeg', disposition: 'attachment'
+    video_title = params[:title]
+    YoutubeDownloaderService.download_mp3(video_url, video_title)
+    send_file "tmp/#{video_title}.mp3", type: 'audio/mpeg', disposition: 'attachment'
   end
 end
