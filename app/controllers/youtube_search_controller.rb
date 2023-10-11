@@ -5,7 +5,7 @@ require 'json'
 require 'uri'
 
 class YoutubeSearchController < ApplicationController
-  API_KEY = 'AIzaSyCNlX5CgDWFH4J-giBWIvWs1RjKa8j7klw'
+  API_KEY = Rails.application.credentials.youtube_api_key
   BASE_URL = 'https://www.googleapis.com/youtube/v3/search'
 
   def search
