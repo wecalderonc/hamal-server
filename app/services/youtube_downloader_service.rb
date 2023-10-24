@@ -29,6 +29,7 @@ class YoutubeDownloaderService
     options.add_argument('--headless')
 
     puts "Starting Firefox in headless mode..."
+    Selenium::WebDriver.logger.level = :debug
     @driver = Selenium::WebDriver.for :firefox, options: options
 
     puts "Navigating to y2mate..."
