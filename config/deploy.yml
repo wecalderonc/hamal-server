@@ -67,14 +67,6 @@ env:
 #     accesslog: true
 #     accesslog.format: json
 
-traefik:
-  args:
-    entrypoints.web.address: ':80'
-  labels:
-    traefik.http.routers.myservice.rule: 'Host(`5.78.75.144`)'
-    traefik.http.routers.myservice.entrypoints: web
-    traefik.http.services.myservice.loadbalancer.server.port: 3000
-
 # Configure a custom healthcheck (default is /up on port 3000)
 # healthcheck:
 #   path: /healthz
