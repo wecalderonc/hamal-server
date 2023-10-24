@@ -30,7 +30,11 @@ class YoutubeDownloaderService
 
     puts "Starting Firefox in headless mode..."
     Selenium::WebDriver.logger.level = :debug
-    @driver = Selenium::WebDriver.for :firefox, options: options
+    begin
+      @driver = Selenium::WebDriver.for :firefox, options: options
+    rescue => e
+      puts "Error while starting the driver: #{e.message}"
+    end
 
     puts "Navigating to y2mate..."
     @driver.navigate.to 'https://www.y2mate.com/en1879/youtube-mp3'

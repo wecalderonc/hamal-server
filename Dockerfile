@@ -42,7 +42,10 @@ FROM base
 
 # Install packages needed for deployment
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl libsqlite3-0 libvips gnome-browser-connector xvfb && \
+    apt-get install --no-install-recommends -y curl libsqlite3-0 libvips xvfb wget unzip firefox-esr && \
+    wget https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-linux64.tar.gz && \
+    tar -zxf geckodriver-v0.30.0-linux64.tar.gz -C /usr/local/bin && \
+    rm geckodriver-v0.30.0-linux64.tar.gz && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Copy built artifacts: gems, application
