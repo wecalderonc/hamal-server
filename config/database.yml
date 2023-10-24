@@ -50,6 +50,7 @@ test:
 #
 production:
   <<: *default
+  host: <%= ENV["DB_HOST"] %>
   database: hamal_production
   username: hamal
   password: <%= ENV["HAMAL_DATABASE_PASSWORD"] %>
